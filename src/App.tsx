@@ -1,24 +1,32 @@
-import React from 'react';
+import React , {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Greet from './components/Greet';
+import Button from './components/Button';
 
 function App() {
+
+  const personName = {
+    firstName : "HTML",
+    lastName : "CSS"
+  }
+
+  const [name, setName] = useState("")
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Greet name='JavaScript' contactNumber={123456}/> */}
+
+      {/* <Greet name='JavaScript' contactNumber={123456} details = {personName}/> */}
+
+      {/* <Button handleClick={() => {
+        console.log("The button was clicked")
+      }} /> */}
+
+      <Button value={name} handleChange = {(event) => {
+        console.log(event.target.value)
+        setName(event.target.value)
+      }} />
+
     </div>
   );
 }
